@@ -75,7 +75,33 @@ It is necessary to delete all of our old object and executable files by typing "
 
 ![image](https://user-images.githubusercontent.com/125944925/220460342-f77e3372-e2d1-4d5e-bced-c34e395b04a9.png)
 
+We must now wait for the completion and readiness of our Kernel image. Our kernel image is prepared to be installed if we observe "Kernel image is ready" after the command has finished running.
 
+![image](https://user-images.githubusercontent.com/125944925/220567343-9980c6ea-4cc7-493c-907d-2085a3684bd3.png)
+
+By entering "make modules install install," which will install the kernel and update our grub, we must now install the kernel that we generated. When everything is finished and the terminal displays "done," we can restart our laptop manually or by entering "shutdown -r now" while holding the "Shift" key to access the grub menu and select the newly installed kernel.
+
+![image](https://user-images.githubusercontent.com/125944925/220567963-c2dcec31-2ac1-4d5a-85ae-2c7a2b8d842a.png)
+
+![image](https://user-images.githubusercontent.com/125944925/220568028-d2d51cef-9e29-42ea-9786-eb11b6aaf2c1.png)
+
+Once entering the freshly built kernel, we check the system call by creating a file in C called "userspace.c" and adding the following code to it:
+#include <stdio.h>
+#include <linux/kernel.h>
+#include <sys/syscall.h>
+#include <unistd.h>
+int main()
+{
+long int i = syscall(335);
+printf("System call sys_hello returned %ld\n", i);
+return 0;
+}
+
+![image](https://user-images.githubusercontent.com/125944925/220568774-1efc5824-dded-4415-ab8d-3545f885548c.png)
+
+Now we run the code by typing "./a.out" and compile it by typing "gcc userspace.c." Note that in calling syscall(335), 335 is the number where we added our system call in the table. Finally, we run "dmesg" to view the kernel messages, and we will find "Hello World" written at the end of them. If it returns 0, this means that our code has successfully compiled and the system call is functioning properly.
+
+![image](https://user-images.githubusercontent.com/125944925/220569419-5db1a36c-8727-4c95-b046-6dd595e8d8fd.png)
 
 lokmok,
 
