@@ -3,7 +3,7 @@
 System call Assignment
 
 Have to perform the following commands on the terminal before downloading the kernel...
-Prerequisites:
+Pre Requirements:
 • sudo apt-get install gcc
 • sudo apt-get install libncurses5-dev
 • sudo apt-get install bison
