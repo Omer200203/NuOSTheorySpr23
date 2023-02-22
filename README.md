@@ -69,7 +69,7 @@ Config file successfully created
 
 ![image](https://user-images.githubusercontent.com/125944925/220459286-32d5e74e-6e99-44e4-ab13-a83056590246.png)
 
-It is necessary to delete all of our old object and executable files by typing "make clean -j4" (It is preferable to enter super user mode by typing "sudo su" before running the commands after this). Once this is complete, we type "make -j4" to begin creating our kernel (-j4 allocates the multiple cores that our system has for compiling). Otherwise, the system will only use one core to compile the kernel, which is a fairly lengthy process. The use of -j4 will nearly quadruple the speed of our compilation. Note that my laptop has 4 cores, which is the number of cores. Enter the appropriate number after executing the command "lscpu" to check your core count.
+It is necessary to delete all of our old object and executable files by typing "make clean -j4" (It is preferable to enter super user mode by typing "sudo su" before running the commands after this). Once this is complete, we type "make -j4" to begin creating our kernel (-j4 allocates the multiple cores that our system has for compiling). Otherwise, the system will only use one core to compile the kernel, which is a fairly lengthy process. The use of -j4 will nearly quadruple the speed of our compilation. Note that my laptop has 4 cores, which is the number of cores. Others can enter the appropriate number after executing the command "lscpu" to check their core count.
 
 ![image](https://user-images.githubusercontent.com/125944925/220460309-de763384-6727-4c97-8224-cf498e2ea73e.png)
 
